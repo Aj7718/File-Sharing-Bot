@@ -96,9 +96,28 @@ async def start_command(client: Client, message: Message):
 async def not_joined(client: Client, message: Message):
     text = "<b>ആദ്യം ഞങ്ങളുടെ official Channel യിൽ ജോയിൻ ചെയ്യുക എന്നാൽ മാത്രമേ സിനിമ കിട്ടുകയുള്ളൂ\n\nFirst join our official channel Then try /start</b>"
     message_text = message.text
+p
+
+
+
     try:
-        command, argument = message_text.split()
-        text = text + f" <b>or <a href='https://t.me/{client.username}?start={argument}'>try again</a></b>"
+
+            	kk, file_id = message.command[1].split("_", 1)
+
+            	pre = 'checksubp' if kk == 'filep' else 'checksub' 
+
+            	btn.append([InlineKeyboardButton(" 🔄 Try Again", callback_data=f"{pre}#{file_id}")])
+
+            except IndexError:
+
+                btn.append([InlineKeyboardButton(" 🔄 Try Again", url=f"https://t.me/{temp.U_NAME}/{message.command[1]}")])
+
+        await client.send_message(
+
+            chat_id=message.from_user.id,
+
+ lp
+
     except ValueError:
         pass
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔰 Official Channel 🔰", url = client.invitelink)]])
