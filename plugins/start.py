@@ -94,36 +94,33 @@ async def start_command(client: Client, message: Message):
 
 @Bot.on_message(filters.command('start') & filters.private)
 async def not_joined(client: Client, message: Message):
-    text = FSUB_TXT,
-    message_text = message.text
-p
-
-
-
+    buttons = [
+        [
+            InlineKeyboardButton(
+                "💢 Join Channel 💢",
+                url = client.invitelink)
+        ]
+    ]
     try:
-
-            	kk, file_id = message.command[1].split("_", 1)
-
-            	pre = 'checksubp' if kk == 'filep' else 'checksub' 
-
-            	btn.append([InlineKeyboardButton(" 🔄 Try Again", callback_data=f"{pre}#{file_id}")])
-
-            except IndexError:
-
-                btn.append([InlineKeyboardButton(" 🔄 Try Again", url=f"https://t.me/{temp.U_NAME}/{message.command[1]}")])
-
-        await client.send_message(
-
-            chat_id=message.from_user.id,
-
- lp
-
-    except ValueError:
+        buttons.append(
+            [
+                InlineKeyboardButton(
+                    text = '🔄 Try Again 🔄',
+                    url = f"https://t.me/{client.username}?start={message.command[1]}"
+                )
+            ]
+        )
+    except IndexError:
         pass
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔰 Official Channel 🔰", url = client.invitelink)]])
+
     await message.reply(
-        text = text,
-        reply_markup = reply_markup,
+        text = FSUB_TXT.format(
+                first = message.from_user.first_name,
+                last = message.from_user.last_name,
+                username = None if not message.from_user.username else '@' + message.from_user.username,
+                mention = message.from_user.mention,
+                id = message.from_user.id
+            ),
+        reply_markup = InlineKeyboardMarkup(buttons),
         quote = True,
         disable_web_page_preview = True
-    )
