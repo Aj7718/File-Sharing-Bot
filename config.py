@@ -14,6 +14,9 @@ API_HASH = os.environ.get("API_HASH", "")
 #Your db channel Id
 CHANNEL_ID = int(os.environ.get("CHANNEL_ID", ""))
 
+#forcesub text
+FSUB_TXT = os.environ.get("FSUB_TXT", "നിങ്ങൾ ആവിശ്യപ്പെട്ട സിനിമ ലഭിക്കുന്നതായി, നിങ്ങൾ ഞങ്ങളുടെ 'Aᴍ Nᴇᴡ Rᴇʟᴇᴀsᴇ🎥' ചാനലിൽ ജോയിൻ ചെയ്യണം.\nജോയിൻ ചെയ്ത ശേഷം ' 🔁 REFRESH 🔁 'ബട്ടൺ ക്ലിക്ക് ചെയ്യൂ 😊\nAs soon as you get the movie you asked for, you should join our 'Aᴍ Nᴇᴡ Rᴇʟᴇᴀsᴇ🎥' channel.\nAfter joining, click on the '🔁 REFRESH 🔁' Button 😊")                           
+
 #OWNER ID
 OWNER_ID = int(os.environ.get("OWNER_ID", ""))
 
